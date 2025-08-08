@@ -1,0 +1,110 @@
+# See the dedicated "version" documentation section.
+version: "2"
+linters:
+  default: all
+  disable:
+    - unparam
+    - depguard
+    - nonamedreturns
+    - varnamelen
+    - wrapcheck
+    - forbidigo
+    - gocritic
+  exclusions:
+    generated: strict
+    warn-unused: true
+    presets:
+      - comments
+      - std-error-handling
+      - common-false-positives
+      - legacy
+
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - gofumpt
+    - goimports
+    - golines
+  settings:
+    gci:
+      sections:
+        - standard # Standard section: captures all standard packages.
+        - default # Default section: contains all imports that could not be matched to another section type.
+        - prefix(github.com/ardnew) # Custom section: groups all imports with the specified Prefix.
+        - blank # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
+        - dot # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
+        - alias # Alias section: contains all alias imports. This section is not present unless explicitly enabled.
+        - localmodule # Local module section: contains all local packages. This section is not present unless explicitly enabled.
+      no-inline-comments: false
+      no-prefix-comments: false
+      custom-order: true
+      no-lex-order: false
+    gofmt:
+      simplify: true
+      rewrite-rules: []
+    gofumpt:
+      module-path: github.com/ardnew/relay
+      extra-rules: true
+    goimports:
+      local-prefixes:
+        - github.com/ardnew/relay
+    golines:
+      max-len: 80
+      tab-len: 2
+      shorten-comments: true
+      reformat-tags: true
+      chain-split-dots: true
+  exclusions:
+    warn-unused: true
+    generated: strict
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  uniq-by-line: false
+  new: false
+  # new-from-merge-base: main
+  # new-from-rev: HEAD
+  # new-from-patch: path/to/patch/file
+  # whole-files: true
+  fix: true
+
+output:
+  formats:
+    # text:
+    #   path: stderr
+    #   print-linter-name: true
+    #   print-issued-lines: true
+    #   colors: true
+    # json:
+    #   path: stderr
+    tab:
+      path: stderr
+      print-linter-name: true
+      colors: true
+    # html:
+    #   path: stderr
+  path-prefix: github.com/ardnew/relay
+  path-mode: abs
+  sort-order:
+    - linter
+    - severity
+    - file
+  show-stats: true
+
+run:
+  timeout: "0"
+  relative-path-mode: gomod
+  issues-exit-code: 100
+  tests: false
+  build-tags: []
+  modules-download-mode: mod
+  allow-parallel-runners: true
+  allow-serial-runners: true
+  # go: ''
+  concurrency: 0
+
+severity:
+  default: "@linter"
+  rules: []

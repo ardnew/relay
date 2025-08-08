@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.github.ardnew.relay</string>
+    <key>Disabled</key>
+    <false/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>LowPriorityIO</key>
+    <false/>
+    <key>LowPriorityBackgroundIO</key>
+    <false/>
+    <key>ThrottleInterval</key>
+    <integer>5</integer>
+    <key>Program</key>
+    <string>/usr/local/bin/relay</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>relay</string>
+        <string>-j</string>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/var/log/relay/stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/relay/stderr.log</string>
+</dict>
+</plist>
