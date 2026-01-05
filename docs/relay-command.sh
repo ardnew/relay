@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # This script is a convenience wrapper that forwards its command-line arguments
 # as the formatted input expected by the relay command on stdin.
@@ -8,7 +8,7 @@ host=${RELAY_HOST:-localhost}
 port=${RELAY_PORT:-50135}
 
 # Override any values from environment with command-line flags
-while getopts "p:" opt; do
+while getopts "p:s:" opt; do
   case ${opt} in
     p)
       port=${OPTARG}
@@ -30,7 +30,7 @@ if ! nc=$( type -P nc ); then
   fi
 fi
 
-${nc} ${host} ${port} <<_EOF_
+"${nc}" "${host}" "${port}" <<_EOF_
 ___
 $*
 ___

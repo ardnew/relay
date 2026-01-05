@@ -22,6 +22,8 @@
     <array>
         <string>relay</string>
         <string>-j</string>
+        <string>bash</string>
+        <string>zsh</string>
     </array>
     <key>StandardOutPath</key>
     <string>/var/log/relay/stdout.log</string>

@@ -7,7 +7,7 @@
 
   "go.diagnostic.vulncheck": "Imports",
 
-  "go.lintTool": "golangci-lint",
+  "go.lintTool": "golangci-lint-v2",
   "go.lintOnSave": "workspace",
   "go.lintFlags": [
     "--config=.golangci.yml"
@@ -17,14 +17,6 @@
       "-gcflags=github.com/ardnew/relay/...=-N -l"
     ],
     "formatting.local": "github.com/ardnew/relay",
-    "ui.codelenses": {
-      "build": true,
-      "generate": true,
-      "run_govulncheck": true,
-      "test": true,
-      "tidy": true,
-      "upgrade_dependency": true,
-    },
     "ui.diagnostic.analyses": {
       "fieldalignment": false,
       "nilness": true,
@@ -45,20 +37,9 @@
     },
   },
 
-  "chat.modeFilesLocations": {
-    "chatmodes": true
-  },
-  "chat.promptFilesLocations": {
-    "prompts": true
-  },
-  "chat.instructionsFilesLocations": {
-    "instructions": true
-  },
-
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-
 
   "[markdown]": {
     "editor.formatOnSave": true
